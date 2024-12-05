@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titre</title>
+    <style>
+
+        :root {
+            color-scheme: light dark;
+            --patat: light-dark(white, black);
+            --carot: light-dark(rgb(184, 218, 36), #1e2901);
+            --cacarot: light-dark(rgb(255, 0, 242), #280129);
+
+        }
+
+         #my-popover {
+            border: 2px solid var(--carot);
+            border-radius: 25px;
+            filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+            margin: 0;
+            margin-inline: auto;
+            top: 0;
+            background-color: var(--cacarot);
+         }
+
+         html {
+            color-scheme: light dark;
+         }
+
+
+    </style>
+</head>
+<body>
+    <button popovertarget="my-popover">Open Popover</button>
+
+<div id="my-popover" popover>
+  <p>I am a popover with more information.</p>
+  <p>enomr pourte</p>
+</div>
+bouchée a la bretonne
+    
+</body>
+</html>
