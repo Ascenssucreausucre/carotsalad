@@ -33,3 +33,11 @@
   width: 600px;
   margin-inline: auto;
 }
+
+.wrap:has(p) {
+  border: 3px dashed green;
+}
+
+.prout, .prout2, .prout3, .prout4 {
+
+}
