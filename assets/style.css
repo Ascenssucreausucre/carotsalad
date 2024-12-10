@@ -152,11 +152,13 @@ exemple-section>section {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .exemple {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .output {
@@ -164,20 +166,33 @@ exemple-section>section {
   height: 150px;
   border: 2px solid black;
   margin-bottom: 10px;
+  display: grid;
+  place-items: center;
 }
 
 .output img {
   width: 80%;
   height: auto;
   display: none;
-  transition: all 0.5s ease;
+  transition: all 1s ease;
+  border: none;
 }
 
 .output_img_w_style {
+  opacity: 1;
   @starting-style {
-    opacity: 1;
-    transform: scale(1.1);
+    translate: 0 -50px;
+    opacity: 0;
   }
+}
+
+.despawn_button {
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background-color: var(--rouge);
+  border: none;
+  width: 40px;
 }
 
 .spawn_button {
@@ -193,3 +208,12 @@ exemple-section>section {
 
 /* BODY  */
 /* BODY  */
+
+/* FOOTER  */
+/* FOOTER  */
+footer {
+  background-color: white;
+  text-align: center;
+}
+/* FOOTER  */
+/* FOOTER  */
