@@ -52,6 +52,28 @@ header {
     background-color: none;
     border: none;
 }
+
+#sidebar{
+    position: absolute;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.5s ease;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+    left: 100%;
+    @starting-style {
+        translate: 0 -80px;
+      }
+}
+
+#sidebar::backdrop{
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    transition: all 0.5s ease;
+    @starting-style {
+      opacity: 0;
+    }
+}
 /* HEADER  */
 /* HEADER  */
 
