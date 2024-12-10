@@ -5,43 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/style.css" />
     <script src="assets/js/harry-styles.js" type="module"></script>
+    <script src="assets/js/exemple-section.js" type="module"></script>
+    <!-- CSS highlight.js -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css"
+    />
+    <!-- Lib highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="./assets/script.js" defer></script>
     <title>Starting Styles</title>
   </head>
   <body>
     <harry-styles></harry-styles>
     <section id="presentation_section">
       <div class="presentation_container">
-        <span class="presentation_title">C'est quoi <strong>@starting-styles</strong> ?</span>
+        <span class="presentation_title titles"
+          >C'est quoi <strong>@starting-styles</strong> ?</span
+        >
         <p class="presentation_paragraph">
-          La fonctionnalité @starting-style a été introduite comme une proposition dans la spécification CSS en 2023 et vise à résoudre des problèmes liés au
-          rendu initial des transitions et des animations.
+          La fonctionnalité @starting-style a été introduite comme une
+          proposition dans la spécification CSS en 2023 et vise à résoudre des
+          problèmes liés au rendu initial des transitions et des animations.
         </p>
-        <div class="code_container">
-          <code>
-            <span>@starting-styles {</span>
-            <span>opacity: 0.5;</span>
-            <span>scale: 1.2;</span>
-            <span>}</span>
+        <pre>
+          <code>@starting-style {
+            opacity: 0.5;
+            transform: scale(1.2);
+          }
           </code>
-        </div>
+        </pre>
       </div>
       <div id="support_navigateur">
         <div class="navigateur">
-          <img src="./assets/img/firefox_logo.png" alt="Navigateur firefox logo" />
+          <img
+            src="./assets/img/firefox_logo.png"
+            alt="Navigateur firefox logo"
+          />
           <span>Firefox</span>
           <img src="./assets/icons/check.svg" alt="check icon" />
         </div>
         <div class="navigateur">
-          <img src="./assets/img/firefox_logo.png" alt="Navigateur firefox logo" />
+          <img
+            src="./assets/img/firefox_logo.png"
+            alt="Navigateur firefox logo"
+          />
           <span>Firefox</span>
           <img src="./assets/icons/check.svg" alt="check icon" />
         </div>
         <div class="navigateur">
-          <img src="./assets/img/firefox_logo.png" alt="Navigateur firefox logo" />
+          <img
+            src="./assets/img/firefox_logo.png"
+            alt="Navigateur firefox logo"
+          />
           <span>Firefox</span>
           <img src="./assets/icons/check.svg" alt="check icon" />
         </div>
       </div>
     </section>
+
+    <section id="quand_utiliser_section">
+      <span class="titles"
+        >Quand utiliser <strong>@starting-styles</strong> ?</span
+      >
+      <p>
+        La fonctionnalité @starting-style est utile pour éviter le Flash Of
+        Unstyled Content (flash du contenu final avant l’animation). Mais
+        l’utilité intéréssante du @starting-style réside dans l’animation du
+        display: none a display: block. Anciennement il n’était pas possible de
+        rajouter une animation d’apparition d’un contenu lorsque il passait de
+        display: none a display: block, avec la feature @starting-style il est
+        maintenant possible de faire ça.
+      </p>
+    </section>
+
+    <exemple-section></exemple-section>
+
+    <template id="exemple_section">
+      <section>
+        <div class="exemple">
+          <span>Avec <strong>@starting-style</strong></span>
+          <div class="output">
+            <img
+              class="output_img output_img_w_style"
+              src="./assets/img/toilet.webp"
+              alt="Image de toilet"
+            />
+          </div>
+          <button class="spawn_button">Spawn</button>
+        </div>
+        <div class="exemple">
+          <span>Sans <strong>@starting-style</strong></span>
+          <div class="output">
+            <img
+              class="output_img"
+              src="./assets/img/toilet.webp"
+              alt="Image de toilet"
+            />
+          </div>
+          <button class="spawn_button">Spawn</button>
+        </div>
+      </section>
+    </template>
+      
+
+    <section id="conclusion_section">
+      <span class="titles">Conclusion</span>
+      <p>blablablablablablablablablablablab lablablablablablablablablablabla</p>
+    </section>
+    <script>
+      // Start la lib pour le <pre> <code>
+      hljs.highlightAll();
+    </script>
   </body>
 </html>

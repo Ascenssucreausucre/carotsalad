@@ -1,23 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap");
 /* font-family: "Parkinsans", sans-serif; */
 
 * {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-    padding: 0;
-    margin: 0;
-    font-family: "Parkinsans", sans-serif;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+  font-family: "Parkinsans", sans-serif;
 }
 
 :root {
-    --rouge : #FF0044;
-    --bleulet : #250044;
+  --rouge: #ff0044;
+  --bleulet: #250044;
 }
 
 @media only screen and (min-width: 600px) {
-    body {
-        background-color: var(--rouge);
-    }
+  body {
+    background-color: var(--rouge);
+  }
 }
 
 html {
@@ -29,29 +29,29 @@ html {
 /* HEADER  */
 
 header {
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
 }
 #logo_container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 #logo_container img {
-    width: 40px;
-    height: auto;
+  width: 40px;
+  height: auto;
 }
 
 #logo_container span {
-    color: var(--rouge);
-    font-size: 1.7rem;
+  color: var(--rouge);
+  font-size: 1.7rem;
 }
 
 #menu_button {
-    background-color: none;
-    border: none;
+  background-color: none;
+  border: none;
 }
 
 #side-bar{
@@ -79,68 +79,117 @@ header {
 /* HEADER  */
 /* HEADER  */
 
+/* BODY  */
+/* BODY  */
 
-/* BODY  */
-/* BODY  */
+.titles {
+  color: var(--rouge);
+  font-size: 1.5rem;
+}
 
 #accueil {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 5%;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5%;
 }
 
 #accueil hr {
-    margin: 20px 0;
+  margin: 20px 0;
 }
 
 #title {
-    font-weight: 300;
+  font-weight: 300;
 }
 
-#presentation_section {
-    width: 90dvw;
-    margin-inline: auto;
-}
-
-.presentation_title {
-    color: var(--rouge);
-    font-size: 1.5rem;
-    margin-bottom: 200px;
+#presentation_section,
+#quand_utiliser_section,
+exemple-section>section,
+#conclusion_section {
+  width: 90dvw;
+  margin-inline: auto;
+  text-align: justify;
+  margin-bottom: 40px;
 }
 
 .presentation_paragraph {
-    color: var(--bleulet);
-    margin-bottom: 15px;
+  color: var(--bleulet);
+  margin-bottom: 15px;
 }
 
-.code_container {
-    background-color: rgb(16, 16, 39);
-    color: white;
-    margin-bottom: 15px;
+.language-css {
+  background-color: rgb(16, 16, 39);
+  margin-bottom: 15px;
 }
 
 .code_container code {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
 #support_navigateur {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .navigateur {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .navigateur img {
-    width: 50%;
+  width: 50%;
 }
+
+/* EXEMPLE SECTION  */
+/* EXEMPLE SECTION  */
+
+exemple-section>section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.exemple {
+  display: flex;
+  flex-direction: column;
+}
+
+.output {
+  width: 150px;
+  height: 150px;
+  border: 2px solid black;
+  margin-bottom: 10px;
+}
+
+.output img {
+  width: 80%;
+  height: auto;
+  display: none;
+  transition: all 0.5s ease;
+}
+
+.output_img_w_style {
+  @starting-style {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.spawn_button {
+  width: 150px;
+  background-color: var(--rouge);
+  border: none;
+  border-radius: 2px;
+  color: white;
+}
+
+/* EXEMPLE SECTION  */
+/* EXEMPLE SECTION  */
+
 /* BODY  */
 /* BODY  */
