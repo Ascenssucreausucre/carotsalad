@@ -9,8 +9,8 @@ class NavBar extends HTMLElement{
           <img src="./assets/img/fornite.png" alt="Logo fortnite swag" />
           <span>Shifty Shaft</span>
         </div>
-        <button id="menu_button" popovertarget="sidebar"><img src="./assets/icons/menuicon.svg" alt="" /></button>
-        <div id="sidebar" popover>
+        <button id="menu_button" popovertarget="side-bar"><img src="./assets/icons/menuicon.svg" alt="" /></button>
+        <div id="side-bar" popover>
           <a href="">abracadabra</a>
           <a href="">abracadabra</a>
           <a href="">abracadabra</a>
