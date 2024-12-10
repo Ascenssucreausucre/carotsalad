@@ -22,6 +22,7 @@
 
 html {
     background-color: #FCF7EF;
+    overflow-x: hidden;
 }
 
 /* HEADER  */
@@ -54,15 +55,16 @@ header {
 }
 
 #side-bar{
-    position: absolute;
     height: 100dvh;
-    display: flex;
-    flex-direction: column;
     transition: all 0.5s ease;
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
-    left: 100%;
+    top: 0;
+    right: 0;
+    left: 70%;
+    border: none;
+    padding: 20px 20px;
     @starting-style {
-        translate: 0 -80px;
+        translate: 100% 0;
       }
 }
 
