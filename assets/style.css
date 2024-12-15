@@ -21,11 +21,9 @@
 }
 
 html {
-    background-color: #FCF7EF;
-    overflow-x: hidden;
+  background-color: #fcf7ef;
+  overflow-x: hidden;
 }
-
-
 
 /* HEADER  */
 /* HEADER  */
@@ -56,27 +54,27 @@ header {
   border: none;
 }
 
-#side-bar{
-    height: 100dvh;
-    transition: all 0.5s ease;
-    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
-    top: 0;
-    right: 0;
-    left: 70%;
-    border: none;
-    padding: 20px 20px;
-    @starting-style {
-        translate: 100% 0;
-      }
+#side-bar {
+  height: 100dvh;
+  transition: all 0.5s ease;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+  top: 0;
+  right: 0;
+  left: 70%;
+  border: none;
+  padding: 20px 20px;
+  @starting-style {
+    translate: 100% 0;
+  }
 }
 
-#side-bar::backdrop{
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 1;
-    transition: all 0.5s ease;
-    @starting-style {
-      opacity: 0;
-    }
+#side-bar::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  transition: all 0.5s ease;
+  @starting-style {
+    opacity: 0;
+  }
 }
 /* HEADER  */
 /* HEADER  */
@@ -108,7 +106,7 @@ header {
 
 #presentation_section,
 #quand_utiliser_section,
-exemple-section>section,
+exemple-section > section,
 #conclusion_section {
   width: 90dvw;
   margin-inline: auto;
@@ -161,29 +159,7 @@ exemple-section>section,
 /* EXEMPLE SECTION  */
 /* EXEMPLE SECTION  */
 
-exemple-section>section {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.exemple {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.output {
-  width: 150px;
-  height: 150px;
-  border: 2px solid black;
-  margin-bottom: 10px;
-  display: grid;
-  place-items: center;
-}
-
-.output img {
+.output_img {
   width: 80%;
   height: auto;
   display: none;
@@ -197,23 +173,6 @@ exemple-section>section {
     translate: 0 -50px;
     opacity: 0;
   }
-}
-
-.despawn_button {
-  height: 40px;
-  display: grid;
-  place-items: center;
-  background-color: var(--rouge);
-  border: none;
-  width: 40px;
-}
-
-.spawn_button {
-  width: 150px;
-  background-color: var(--rouge);
-  border: none;
-  border-radius: 2px;
-  color: white;
 }
 
 /* EXEMPLE SECTION  */
