@@ -79,6 +79,63 @@
       </p>
     </section>
     <template id="exemple_section">
+      <style>
+        section {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          align-items: center;
+        }
+
+        .exemple {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          width: 30vw;
+        }
+
+        .output {
+          width: 100%;
+          height: 30vw;
+          border: 2px solid black;
+          margin-bottom: 10px;
+          display: grid;
+          place-items: center;
+        }
+
+        .output_img_w_style {
+          opacity: 1;
+          @starting-style {
+            translate: 0 -50px;
+            opacity: 0;
+          }
+        }
+
+        .spawn_imgs {
+          display: none;
+          transition: all 1s ease;
+        }
+
+        .despawn_button {
+          height: 40px;
+          display: grid;
+          place-items: center;
+          background-color: var(--rouge);
+          border: none;
+          width: 40px;
+          border-radius: 5px;
+        }
+
+        .spawn_button {
+          width: 100%;
+          background-color: var(--rouge);
+          border: none;
+          border-radius: 2px;
+          color: white;
+          padding-block: 10px;
+          border-radius: 5px;
+        }
+      </style>
       <section>
         <div class="exemple">
           <span
@@ -86,11 +143,10 @@
             <strong>@starting-style</strong></span
           >
           <div class="output">
-            <img
-              class="output_img output_img_w_style"
-              src="./assets/img/sanic.gif"
-              alt="Image de toilet"
-            />
+            <slot
+              name="with-starting-style"
+              class="spawn_imgs output_img_w_style"
+            ></slot>
           </div>
           <button class="spawn_button">Spawn</button>
         </div>
@@ -103,18 +159,27 @@
             <strong>@starting-style</strong></span
           >
           <div class="output">
-            <img
-              class="output_img"
-              src="./assets/img/sanic.gif"
-              alt="Image de toilet"
-            />
+            <slot name="without-starting-style" class="spawn_imgs"></slot>
           </div>
           <button class="spawn_button">Spawn</button>
         </div>
       </section>
     </template>
 
-    <exemple-section></exemple-section>
+    <exemple-section>
+      <img
+        class="output_img output_img_w_style"
+        src="./assets/img/sanic.gif"
+        alt="Image de toilet"
+        slot="with-starting-style"
+      />
+      <img
+        class="output_img"
+        src="./assets/img/sanic.gif"
+        alt="Image de toilet"
+        slot="without-starting-style"
+      />
+    </exemple-section>
 
     <section id="conclusion_section">
       <span class="titles">Conclusion</span>
