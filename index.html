@@ -1,57 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titre</title>
-    <link rel="stylesheet" href="css.css">
-    <style>
-
-        :root {
-            color-scheme: light dark;
-            --patat: light-dark(white, black);
-            --carot: light-dark(rgb(184, 218, 36), #1e2901);
-            --cacarot: light-dark(rgb(255, 0, 242), #280129);
-
-        }
-
-         #my-popover {
-            
-         }
-
-         html {
-            color-scheme: light dark;
-         }
-
-
-    </style>
-</head>
-<body>
-    <button popovertarget="my-popover">Open Popover</button>
-
-<div id="my-popover" popover>
-  <p>I am a popover with more information.</p>
-  <h1>enomr pourte</h1>
-  <h1>annihilation de toute forme de vie</h1>
-  <button popovertarget="prout">Open Popover</button>
-
-  <div id="prout" popover><p>salut prout mdrrrrrr le rire et tout</p>
-    <button popovertarget="prout2">Open Popover</button>
-    <div id="prout2" popover><p>explosion</p>
-        <button popovertarget="prout3">Open Popover</button>
-        <div id="prout3" popover><p>kezako</p>
-            <button popovertarget="prout4">Open Popover</button>
-            <div id="prout4" popover><p>the one piece</p></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <script src="assets/js/harry-styles.js" type="module"></script>
+    <script src="assets/js/exemple-section.js" type="module"></script>
+    <!-- CSS highlight.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <!-- Lib highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="./assets/js/script.js" defer></script>
+    <title>Starting Styles</title>
+  </head>
+  <body>
+    <harry-styles></harry-styles>
+    <section id="presentation_section">
+      <div class="presentation_container">
+        <span class="presentation_title titles">C'est quoi <strong>@starting-styles</strong> ?</span>
+        <p class="presentation_paragraph">
+          La fonctionnalité @starting-style a été introduite comme une proposition dans la spécification CSS en 2023 et vise à résoudre des problèmes liés au
+          rendu initial des transitions et des animations.
+        </p>
+        <pre>
+          <code>@starting-style {
+            opacity: 0.5;
+            transform: scale(1.2);
+          }
+          </code>
+        </pre>
+      </div>
+      <div id="support_navigateur">
+        <div class="navigateur">
+          <img src="./assets/img/firefox_logo.png" alt="Navigateur firefox logo" />
+          <span>Firefox</span>
+          <img src="./assets/icons/check.svg" alt="check icon" />
         </div>
-    </div>
-  </div>
-</div>
+        <div class="navigateur">
+          <img src="./assets/img/firefox_logo.png" alt="Navigateur firefox logo" />
+          <span>Firefox</span>
+          <img src="./assets/icons/check.svg" alt="check icon" />
+        </div>
+        <div class="navigateur">
+          <img src="./assets/img/firefox_logo.png" alt="Navigateur firefox logo" />
+          <span>Firefox</span>
+          <img src="./assets/icons/check.svg" alt="check icon" />
+        </div>
+      </div>
+    </section>
 
-<div class="wrap">
-    <h1>Titre titre title titro</h1>
-    <p>Tout pouvoir m’a été donné au ciel et sur la terre. Allez ! De toutes les nations faites des disciples : baptisez-les au nom du Père, et du Fils, et du Saint-Esprit, apprenez-leur à observer tout ce que je vous ai commandé. Et moi, je suis avec vous tous les jours jusqu’à la fin du monde</p>
-</div>
+    <section id="quand_utiliser_section">
+      <span class="titles">Quand utiliser <strong>@starting-styles</strong> ?</span>
+      <p>
+        La fonctionnalité @starting-style est utile pour éviter le Flash Of Unstyled Content (flash du contenu final avant l’animation). Mais l’utilité
+        intéréssante du @starting-style réside dans l’animation du display: none a display: block. Anciennement il n’était pas possible de rajouter une
+        animation d’apparition d’un contenu lorsque il passait de display: none a display: block, avec la feature @starting-style il est maintenant possible de
+        faire ça.
+      </p>
+    </section>
+    <template id="exemple_section">
+      <section>
+        <div class="exemple">
+          <span
+            >Avec <br />
+            <strong>@starting-style</strong></span
+          >
+          <div class="output">
+            <img class="output_img output_img_w_style" src="./assets/img/sanic.gif" alt="Image de toilet" />
+          </div>
+          <button class="spawn_button">Spawn</button>
+        </div>
+        <button class="despawn_button">
+          <img src="./assets/icons/refresh.svg" alt="Refresh icon" />
+        </button>
+        <div class="exemple">
+          <span
+            >Sans <br />
+            <strong>@starting-style</strong></span
+          >
+          <div class="output">
+            <img class="output_img" src="./assets/img/sanic.gif" alt="Image de toilet" />
+          </div>
+          <button class="spawn_button">Spawn</button>
+        </div>
+      </section>
+    </template>
 
+    <exemple-section></exemple-section>
 
-</body>
+    <section id="conclusion_section">
+      <span class="titles">Conclusion</span>
+      <p>blablablablablablablablablablablab lablablablablablablablablablabla</p>
+    </section>
+    <script>
+      // Start la lib pour le <pre> <code>
+      hljs.highlightAll();
+    </script>
+    <footer>
+      <span>Mxou l'honoré empereur de jade de la hauteur supreme du ciel et de la terre</span>
+      <br />
+      <br />
+      <span>flran</span>
+    </footer>
+  </body>
 </html>
