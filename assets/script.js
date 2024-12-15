@@ -16,4 +16,30 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log(image);
     });
   });
+
+function detectBrowser() {
+  const userAgent = navigator.userAgent;
+
+  if (userAgent.includes("Edg")) {
+    return "Microsoft Edge";
+  } else if (userAgent.includes("OPR") || userAgent.includes("Opera")) {
+    return "Opera";
+  } else if (userAgent.includes("Chrome")) {
+    return "Google Chrome";
+  } else if (userAgent.includes("Firefox")) {
+    return "Mozilla Firefox";
+  } else if (userAgent.includes("Safari")) {
+    return "Safari";
+  } else if (userAgent.includes("MSIE") || userAgent.includes("Trident")) {
+    return "Internet Explorer";
+  } else {
+    return "Navigateur inconnu";
+  }
+}
+
+console.log(detectBrowser());
+
+
+
+
 });
