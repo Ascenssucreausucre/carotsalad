@@ -21,24 +21,28 @@ function detectBrowser() {
   const userAgent = navigator.userAgent;
 
   if (userAgent.includes("Edg")) {
-    return "Microsoft Edge";
+    return "Microsoft Edge (Supporté)";
   } else if (userAgent.includes("OPR") || userAgent.includes("Opera")) {
-    return "Opera";
+    return "Opera (Supporté)";
   } else if (userAgent.includes("Chrome")) {
-    return "Google Chrome";
+    return "Google Chrome (Supporté)";
   } else if (userAgent.includes("Firefox")) {
-    return "Mozilla Firefox";
+    return "Mozilla Firefox (Support partiel)";
   } else if (userAgent.includes("Safari")) {
-    return "Safari";
+    return "Safari (Supporté)";
   } else if (userAgent.includes("MSIE") || userAgent.includes("Trident")) {
-    return "Internet Explorer";
+    const navAlert = document.createElement("div");
+     navAlert.classList.add("nav_alert");
+     navAlert.innerHTML = "Votre navigateur ne supporte pas cette fonctionnalité";
+     const presentationSection = document.getElementById("presentation_section");
+     presentationSection.prepend(navAlert);
+    return "Internet Explorer (Non supporté)";
   } else {
     return "Navigateur inconnu";
   }
 }
 
-console.log(detectBrowser());
-
+detectBrowser();
 
 
 

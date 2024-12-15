@@ -25,6 +25,8 @@ html {
     overflow-x: hidden;
 }
 
+
+
 /* HEADER  */
 /* HEADER  */
 
@@ -112,6 +114,17 @@ exemple-section>section,
   margin-inline: auto;
   text-align: justify;
   margin-bottom: 40px;
+}
+
+.nav_alert {
+  background-color: #ffcccc;
+  color: #900;
+  padding: 10px;
+  border: 1px solid #900;
+  border-radius: 5px;
+  margin: 20px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .presentation_paragraph {
