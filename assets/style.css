@@ -169,6 +169,44 @@ exemple-section > section,
 /* EXEMPLE SECTION  */
 /* EXEMPLE SECTION  */
 
+/* PROS & CONS  */
+/* PROS & CONS  */
+
+#pros_cons_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pros, .cons {
+  width: 90vw;
+  text-align: center;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+.pros ul, .cons ul {
+  list-style-type: none;
+}
+
+#pros_cons_section div:nth-child(odd) {
+  background-color: rgb(68, 168, 68);
+  border: 3px solid rgb(25, 107, 25);
+}
+
+#pros_cons_section div:nth-child(even) {
+  background-color: rgb(168, 68, 68);
+  border: 3px solid rgb(117, 35, 35);
+}
+
+.pros_cons_title {
+  font-size: 1.5rem;
+}
+
+
+/* PROS & CONS  */
+/* PROS & CONS  */
+
 /* BODY  */
 /* BODY  */
 
