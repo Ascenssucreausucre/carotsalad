@@ -8,7 +8,10 @@
     <script src="assets/js/acc-ueil.js" type="module"></script>
     <script src="assets/js/exemple-section.js" type="module"></script>
     <!-- CSS highlight.js -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css"
+    />
 
     <!-- Lib highlight.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
@@ -21,15 +24,22 @@
       <acc-ueil></acc-ueil>
       <section id="presentation_section">
         <div class="presentation_container">
-          <p class="presentation_title titles">C'est quoi <strong>@starting-styles</strong> ?</p>
+          <p class="presentation_title titles">
+            C'est quoi <strong>@starting-styles</strong> ?
+          </p>
           <p class="presentation_paragraph">
-            La fonctionnalité @starting-style a été introduite comme une proposition dans la spécification CSS en 2023 et vise à résoudre des problèmes liés au
-            rendu initial des transitions et des animations. En autre, ça permet de définir des valeurs de départ pour les propriétés d’un élément lorsque
-            celui-ci reçoit sa première mise à jour de style, par exemple lors de son premier affichage sur une page déjà chargée
+            La fonctionnalité @starting-style a été introduite comme une
+            proposition dans la spécification CSS en 2023 et vise à résoudre des
+            problèmes liés au rendu initial des transitions et des animations.
+            En autre, ça permet de définir des valeurs de départ pour les
+            propriétés d’un élément lorsque celui-ci reçoit sa première mise à
+            jour de style, par exemple lors de son premier affichage sur une
+            page déjà chargée
             <br />
             <br />
             Il existe deux façons de mettre en place le
-            <strong>@starting-style</strong> dans son code, premièrement en tant que bloc autonome
+            <strong>@starting-style</strong> dans son code, premièrement en tant
+            que bloc autonome
           </p>
           <pre>
           <code>@starting-style {
@@ -39,7 +49,9 @@
           }
           </code>
         </pre>
-          <p class="presentation_paragraph">Et deuxièmement en tant que bloc imprimé dans un ruleset</p>
+          <p class="presentation_paragraph">
+            Et deuxièmement en tant que bloc imprimé dans un ruleset
+          </p>
           <pre>
           <code>.selecteur {
             propriété: valeur;
@@ -50,7 +62,9 @@
           }
           </code>
         </pre>
-          <p class="presentation_paragraph">Voici un exemple de code plus concret</p>
+          <p class="presentation_paragraph">
+            Voici un exemple de code plus concret
+          </p>
           <pre>
           <code>#element {
             transition: opacity 0.5s;
@@ -68,10 +82,13 @@
       <section id="quand_utiliser_section">
         <p class="titles">Quand utiliser <strong>@starting-styles</strong> ?</p>
         <p>
-          La fonctionnalité @starting-style est utile pour éviter le Flash Of Unstyled Content (flash du contenu final avant l’animation). Mais l’utilité
-          intéréssante du @starting-style réside dans l’animation du display: none a display: block. Anciennement il n’était pas possible de rajouter une
-          animation d’apparition d’un contenu lorsque il passait de display: none a display: block, avec la feature @starting-style il est maintenant possible
-          de faire ça.
+          La fonctionnalité @starting-style est utile pour éviter le Flash Of
+          Unstyled Content (flash du contenu final avant l’animation). Mais
+          l’utilité intéréssante du @starting-style réside dans l’animation du
+          display: none a display: block. Anciennement il n’était pas possible
+          de rajouter une animation d’apparition d’un contenu lorsque il passait
+          de display: none a display: block, avec la feature @starting-style il
+          est maintenant possible de faire ça.
         </p>
       </section>
       <template id="exemple_section">
@@ -160,7 +177,10 @@
               <strong>@starting-style</strong>
             </p>
             <div class="output">
-              <slot name="with-starting-style" class="spawn_imgs output_img_w_style"></slot>
+              <slot
+                name="with-starting-style"
+                class="spawn_imgs output_img_w_style"
+              ></slot>
             </div>
             <button class="spawn_button btn">Spawn</button>
           </div>
@@ -179,7 +199,9 @@
             >
               <polyline points="1 4 1 10 7 10"></polyline>
               <polyline points="23 20 23 14 17 14"></polyline>
-              <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+              <path
+                d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"
+              ></path>
             </svg>
           </button>
           <div class="exemple">
@@ -196,14 +218,26 @@
       </template>
 
       <exemple-section>
-        <img class="output_img output_img_w_style" src="./assets/img/pome.jpg" alt="Image de toilet" slot="with-starting-style" />
-        <img class="output_img" src="./assets/img/pome.jpg" alt="Image de toilet" slot="without-starting-style" />
+        <img
+          class="output_img output_img_w_style"
+          src="./assets/img/pome.jpg"
+          alt="Image de toilet"
+          slot="with-starting-style"
+        />
+        <img
+          class="output_img"
+          src="./assets/img/pome.jpg"
+          alt="Image de toilet"
+          slot="without-starting-style"
+        />
       </exemple-section>
 
       <p class="explaination">
-        Dans cet exemple, ces quatre simple lignes de codes animent l'image à son apparition pour un rendu plus visuellement agréable. Cette animation est faite
-        uniquement en CSS, là où du JavaScript était nécessaire avant sont apparition. Néanmoins, le JavaScript reste indispensable à l'apparition des images de
-        cet exemple.
+        Dans cet exemple, ces quatre simple lignes de codes animent l'image à
+        son apparition pour un rendu plus visuellement agréable. Cette animation
+        est faite uniquement en CSS, là où du JavaScript était nécessaire avant
+        sont apparition. Néanmoins, le JavaScript reste indispensable à
+        l'apparition des images de cet exemple.
       </p>
 
       <pre>
@@ -243,8 +277,10 @@
           </div>
         </div>
         <p class="explaination">
-          Ici, un exemple de hover plus harmonieux, encore une fois en CSS only. La propriété se montre particulièrement utile pour les boîtes de dialogue au
-          survol, car elles deviennent maintenant 100% faisables en CSS.
+          Ici, un exemple de hover plus harmonieux, encore une fois en CSS only.
+          La propriété se montre particulièrement utile pour les boîtes de
+          dialogue au survol, car elles deviennent maintenant 100% faisables en
+          CSS.
         </p>
 
         <pre>
@@ -268,13 +304,22 @@
             <p>Avec <br /><strong>@starting-style</strong></p>
             <div class="output">
               <div>
-                <button class="btn" popovertarget="my-popover">Click me!</button>
+                <button class="btn" popovertarget="my-popover">
+                  Click me!
+                </button>
                 <div id="my-popover" class="popover" popover>
-                  <h2 class="titles">Faisons un peu de HTML en plus cette fois-ci...</h2>
+                  <h2 class="titles">
+                    Faisons un peu de HTML en plus cette fois-ci...
+                  </h2>
                   <p class="explaination">
-                    Cette partie bonus montre presque le même comportement que le premier exemple, mais cette fois-ci sans aucune ligne de JavaScript. Tout est
-                    uniquement en HTML et CSS !@starting-style et popover sont deux features qui fonctionnent parfaitement ensembles.
-                    <strong>Il suffit de cliquer en dehors pour en sortir.</strong>
+                    Cette partie bonus montre presque le même comportement que
+                    le premier exemple, mais cette fois-ci sans aucune ligne de
+                    JavaScript. Tout est uniquement en HTML et CSS
+                    !@starting-style et popover sont deux features qui
+                    fonctionnent parfaitement ensembles.
+                    <strong
+                      >Il suffit de cliquer en dehors pour en sortir.</strong
+                    >
                     Voici le code :
                   </p>
                   <div class="overflow-Y">
@@ -304,9 +349,14 @@
             <p>Sans <br /><strong>@starting-style</strong></p>
             <div class="output">
               <div>
-                <button class="btn" popovertarget="my-popover-2">Click me!</button>
+                <button class="btn" popovertarget="my-popover-2">
+                  Click me!
+                </button>
                 <div id="my-popover-2" class="popover" popover>
-                  <h2 class="titles">Rien à voir ici. Tu devrais peut-être essayer l'autre bouton...</h2>
+                  <h2 class="titles">
+                    Rien à voir ici. Tu devrais peut-être essayer l'autre
+                    bouton...
+                  </h2>
                 </div>
               </div>
             </div>
@@ -317,13 +367,22 @@
       <section id="conclusion_section">
         <p class="titles">Conclusion</p>
         <p>
-          La fonctionnalité <strong>@starting-style</strong> représente une avancée intéressante en CSS, facilitant l'animation fluide d’éléments lors de leur
-          première apparition, tout en évitant le problème du Flash of Unstyled Content <strong>(FOUC)</strong>. Grâce à cette nouvelle possibilité, il devient
-          enfin réalisable d'animer le passage de display: none à display: block sans JavaScript. Cependant, bien qu'elle offre de nombreux avantages comme une
-          meilleure fluidité et une simplicité de mise en œuvre, <strong>@starting-style</strong> reste une fonctionnalité expérimentale. Son adoption reste
-          limitée par le manque de compatibilité avec certains navigateurs et le risque d'impacts sur les performances si elle est utilisée de manière
-          excessive. Nonobstant, cette proposition promet de simplifier le développement d'interfaces web plus dynamiques et engageantes. À mesure que la prise
-          en charge s'étendra, <strong>@starting-style</strong> pourrait devenir un outil incontournable pour les animations CSS modernes.
+          La fonctionnalité <strong>@starting-style</strong> représente une
+          avancée intéressante en CSS, facilitant l'animation fluide d’éléments
+          lors de leur première apparition, tout en évitant le problème du Flash
+          of Unstyled Content <strong>(FOUC)</strong>. Grâce à cette nouvelle
+          possibilité, il devient enfin réalisable d'animer le passage de
+          display: none à display: block sans JavaScript. Cependant, bien
+          qu'elle offre de nombreux avantages comme une meilleure fluidité et
+          une simplicité de mise en œuvre,
+          <strong>@starting-style</strong> reste une fonctionnalité
+          expérimentale. Son adoption reste limitée par le manque de
+          compatibilité avec certains navigateurs et le risque d'impacts sur les
+          performances si elle est utilisée de manière excessive. Nonobstant,
+          cette proposition promet de simplifier le développement d'interfaces
+          web plus dynamiques et engageantes. À mesure que la prise en charge
+          s'étendra, <strong>@starting-style</strong> pourrait devenir un outil
+          incontournable pour les animations CSS modernes.
         </p>
       </section>
       <script>
@@ -343,7 +402,10 @@
       </script>
     </main>
     <footer>
-      <p>Mxou l'honoré empereur de jade de la hauteur supreme du ciel et de la terre</p>
+      <p>
+        Mxou l'honoré empereur de jade de la hauteur supreme du ciel et de la
+        terre
+      </p>
       <br />
       <br />
       <p>flran</p>
