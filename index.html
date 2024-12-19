@@ -108,10 +108,16 @@
             width: 20vw;
           }
 
+          .exemple > p {
+            margin-bottom: 10px;
+          }
+
           .output {
             width: 100%;
             height: 20vw;
-            border: 2px solid black;
+            background-color: white;
+            filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
+            border-radius: 10px;
             margin-bottom: 10px;
             display: grid;
             place-items: center;
@@ -120,7 +126,7 @@
           .output_img_w_style {
             opacity: 1;
             @starting-style {
-              translate: 0 -50px;
+              transform: scale(0.5);
               opacity: 0;
             }
           }
@@ -137,17 +143,26 @@
             background-color: var(--rouge);
             border: none;
             width: 40px;
+          }
+          .spawn_button,
+          .despawn_button {
             border-radius: 5px;
+            cursor: pointer;
+            transition: filter 0.3s ease-out;
+            filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
           }
 
           .spawn_button {
             width: 100%;
             background-color: var(--rouge);
             border: none;
-            border-radius: 2px;
             color: white;
             padding-block: 10px;
-            border-radius: 5px;
+          }
+
+          .spawn_button:hover,
+          .despawn_button:hover {
+            filter: drop-shadow(0 0 3px var(--rouge));
           }
 
           p {
@@ -167,10 +182,27 @@
                 class="spawn_imgs output_img_w_style"
               ></slot>
             </div>
-            <button class="spawn_button">Spawn</button>
+            <button class="spawn_button btn">Spawn</button>
           </div>
-          <button class="despawn_button">
-            <img src="./assets/icons/refresh.svg" alt="Refresh icon" />
+          <button class="despawn_button btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#fcf7ef"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-refresh-ccw"
+            >
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <polyline points="23 20 23 14 17 14"></polyline>
+              <path
+                d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"
+              ></path>
+            </svg>
           </button>
           <div class="exemple">
             <p>
@@ -180,7 +212,7 @@
             <div class="output">
               <slot name="without-starting-style" class="spawn_imgs"></slot>
             </div>
-            <button class="spawn_button">Spawn</button>
+            <button class="spawn_button btn">Spawn</button>
           </div>
         </section>
       </template>
@@ -200,26 +232,133 @@
         />
       </exemple-section>
 
+      <p class="explaination">
+        Dans cet exemple, ces quatre simple lignes de codes animent l'image à
+        son apparition pour un rendu plus visuellement agréable. Cette animation
+        est faite uniquement en CSS, là où du JavaScript était nécessaire avant
+        sont apparition. Néanmoins, le JavaScript reste indispensable à
+        l'apparition des images de cet exemple.
+      </p>
+
+      <pre>
+        <code>.output_img_w_style {
+          opacity: 1;
+          @starting-style {
+            transform: scale(0.5);
+            opacity: 0;
+          }
+        }
+        </code>
+      </pre>
+
       <section id="hover">
-        <div class="exemple">
-          <p>Avec <br /><strong>@starting-style</strong></p>
-          <div class="output">
-            <div>
-              <h3>Hover me!</h3>
-              <dialog>
-                <p>Je suis si smooth</p>
-              </dialog>
+        <div>
+          <div class="exemple">
+            <p>Avec <br /><strong>@starting-style</strong></p>
+            <div class="output">
+              <div>
+                <h3><span>Hover me!</span><span>Tap me!</span></h3>
+                <dialog>
+                  <p>Je suis si smooth</p>
+                </dialog>
+              </div>
+            </div>
+          </div>
+          <div class="exemple">
+            <p>Sans <br /><strong>@starting-style</strong></p>
+            <div class="output">
+              <div>
+                <h3><span>Hover me!</span><span>Tap me!</span></h3>
+                <dialog>
+                  <p>Je suis si peu smooth</p>
+                </dialog>
+              </div>
             </div>
           </div>
         </div>
-        <div class="exemple">
-          <p>Sans <br /><strong>@starting-style</strong></p>
-          <div class="output">
-            <div>
-              <h3>Hover me!</h3>
-              <dialog>
-                <p>Je suis si peu smooth</p>
-              </dialog>
+        <p class="explaination">
+          Ici, un exemple de hover plus harmonieux, encore une fois en CSS only.
+          La propriété se montre particulièrement utile pour les boîtes de
+          dialogue au survol, car elles deviennent maintenant 100% faisables en
+          CSS.
+        </p>
+
+        <pre>
+          <code>.exemple:first-of-type dialog {
+            opacity: 1;
+            @starting-style {
+              opacity: 0;
+            }
+          }
+          .exemple > .output > div:hover dialog {
+            display: block;
+          }
+          </code>
+        </pre>
+      </section>
+
+      <section id="popover">
+        <h2 class="titles">Bonus</h2>
+        <div>
+          <div class="exemple">
+            <p>Avec <br /><strong>@starting-style</strong></p>
+            <div class="output">
+              <div>
+                <button class="btn" popovertarget="my-popover">
+                  Click me!
+                </button>
+                <div id="my-popover" class="popover" popover>
+                  <h2 class="titles">
+                    Faisons un peu de HTML en plus cette fois-ci...
+                  </h2>
+                  <p class="explaination">
+                    Cette partie bonus montre presque le même comportement que
+                    le premier exemple, mais cette fois-ci sans aucune ligne de
+                    JavaScript. Tout est uniquement en HTML et CSS
+                    !@starting-style et popover sont deux features qui
+                    fonctionnent parfaitement ensembles.
+                    <strong
+                      >Il suffit de cliquer en dehors pour en sortir.</strong
+                    >
+                    Voici le code :
+                  </p>
+                  <div class="overflow-Y">
+                    <p class="titles">Code HTML :</p>
+                    <pre>
+                      <code id="html-strings">
+                      </code>
+                    </pre>
+                    <p class="titles">Code CSS :</p>
+                    <pre>
+                      <code>
+                        #my-popover {
+                          opacity: 1;
+                          @starting-style {
+                            opacity: 0;
+                            translate: 0 -50px;
+                          }
+                        }
+                      </code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="exemple">
+            <p>Sans <br /><strong>@starting-style</strong></p>
+            <div class="output">
+              <div>
+                <button class="btn" popovertarget="my-popover-2">
+                  Click me!
+                </button>
+                <div id="my-popover-2" class="popover" popover>
+                  <h2 class="titles">
+                    Rien à voir ici. Tu devrais peut-être essayer l'autre
+                    bouton...
+                  </h2>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -232,6 +371,17 @@
         </p>
       </section>
       <script>
+        const target = document.getElementById("html-strings");
+        target.innerHTML = `
+          &lt;button class="btn" popovertarget="my-popover-2"&gt;
+            Click me!
+          &lt;/button&gt;
+          &lt;div id="my-popover-2" class="popover" popover&gt;
+            &lt;h2 class="titles"&gt;
+              Rien à voir ici. Tu devrais peut-être essayer l'autre
+              bouton...
+            &lt;/h2&gt;
+          &lt;/div&gt;`;
         // Start la lib pour le <pre> <code>
         hljs.highlightAll();
       </script>

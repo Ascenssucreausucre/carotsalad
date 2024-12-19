@@ -11,6 +11,11 @@ class ExempleSection extends HTMLElement {
     const imgs = shadow.querySelectorAll(".spawn_imgs");
     const spawn_buttons = shadow.querySelectorAll(".spawn_button");
     const despawn_button = shadow.querySelector(".despawn_button");
+    // const btns = shadow.querySelectorAll(".btn");
+
+    // btns.forEach((btn) => {
+    //   btn.style.display = "none";
+    // });
 
     despawn_button.addEventListener("click", function () {
       imgs.forEach((img) => {
