@@ -15,7 +15,7 @@
 }
 
 main {
-  padding-inline: 15vw;
+  padding-inline: 20vw;
   padding-top: 60px;
 }
 @media only screen and (max-width: 600px) {
@@ -95,6 +95,7 @@ header {
 .titles {
   color: var(--rouge);
   font-size: 1.5rem;
+  text-align: center;
 }
 
 #accueil {
@@ -122,7 +123,6 @@ exemple-section > section,
   text-align: justify;
   margin-bottom: 40px;
 }
-
 .nav_alert {
   background-color: #ffcccc;
   color: #900;
@@ -136,11 +136,6 @@ exemple-section > section,
 
 .presentation_paragraph {
   color: var(--bleulet);
-  margin-bottom: 15px;
-}
-
-.language-css {
-  background-color: rgb(16, 16, 39);
   margin-bottom: 15px;
 }
 
@@ -174,8 +169,114 @@ exemple-section > section,
   border: none;
 }
 
+.exemple > .output {
+  position: relative;
+  anchor-name: --anchor;
+}
+dialog {
+  position: absolute;
+  position-anchor: --my-anchor;
+  position-area: bottom;
+  display: none;
+  background-color: #1e2901;
+  padding: 10px;
+  border-radius: 15px;
+  color: white;
+  opacity: 1;
+  border: none;
+  font-size: clamp(10px, 1vw, 15px);
+  transition: all 0.5s ease;
+}
+.exemple:first-of-type dialog {
+  @starting-style {
+    opacity: 0;
+  }
+}
+.exemple > .output > div:hover dialog {
+  display: block;
+}
+#hover {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+#hover h3 {
+  color: #ff0044;
+  position: relative;
+  font-size: clamp(15px, 2vw, 35px);
+}
+#hover h3::after {
+  position: absolute;
+  content: "";
+  width: 80%;
+  height: 3px;
+  top: 100%;
+  left: 50%; /* Positionne le milieu à 50% */
+  transform: translateX(-50%); /* Centre l'élément */
+  border-radius: 3px;
+  background-color: #ff0044;
+}
+.exemple {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 20vw;
+}
+
+.output {
+  width: 100%;
+  height: 20vw;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: grid;
+  place-items: center;
+}
+
 /* EXEMPLE SECTION  */
 /* EXEMPLE SECTION  */
+
+/* PROS & CONS  */
+/* PROS & CONS  */
+
+#pros_cons_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pros,
+.cons {
+  width: 90vw;
+  text-align: center;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+.pros ul,
+.cons ul {
+  list-style-type: none;
+}
+
+#pros_cons_section div:nth-child(odd) {
+  background-color: rgb(68, 168, 68);
+  border: 3px solid rgb(25, 107, 25);
+}
+
+#pros_cons_section div:nth-child(even) {
+  background-color: rgb(168, 68, 68);
+  border: 3px solid rgb(117, 35, 35);
+}
+
+.pros_cons_title {
+  font-size: 1.5rem;
+}
+
+/* PROS & CONS  */
+/* PROS & CONS  */
 
 /* BODY  */
 /* BODY  */
