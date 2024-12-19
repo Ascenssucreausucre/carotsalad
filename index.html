@@ -20,12 +20,40 @@
         <span class="presentation_title titles">C'est quoi <strong>@starting-styles</strong> ?</span>
         <p class="presentation_paragraph">
           La fonctionnalité @starting-style a été introduite comme une proposition dans la spécification CSS en 2023 et vise à résoudre des problèmes liés au
-          rendu initial des transitions et des animations.
+          rendu initial des transitions et des animations. En autre, ça permet de définir des valeurs de départ pour les propriétés d’un élément lorsque
+          celui-ci reçoit sa première mise à jour de style, par exemple lors de son premier affichage sur une page déjà chargée
+          <br />
+          <br />
+          Il existe deux façons de mettre en place le <strong>@starting-style</strong> dans son code, premièrement en tant que bloc autonome
         </p>
         <pre>
           <code>@starting-style {
-            opacity: 0.5;
-            transform: scale(1.2);
+            .selecteur {
+              propriété: valeur;
+            }
+          }
+          </code>
+        </pre>
+        <p class="presentation_paragraph">Et deuxièmement en tant que bloc imprimé dans un ruleset</p>
+        <pre>
+          <code>.selecteur {
+            propriété: valeur;
+  
+            @starting-style {
+              propriété: valeur_initiale;
+            }
+          }
+          </code>
+        </pre>
+        <p class="presentation_paragraph">Voici un exemple de code plus concret</p>
+        <pre>
+          <code>#element {
+            transition: opacity 0.5s;
+            opacity: 1;
+
+            @starting-style {
+              opacity: 0;
+            }
           }
           </code>
         </pre>
@@ -61,10 +89,10 @@
     <section id="quand_utiliser_section">
       <span class="titles">Quand utiliser <strong>@starting-styles</strong> ?</span>
       <p>
-        La fonctionnalité @starting-style est utile pour éviter le Flash Of Unstyled Content (flash du contenu final avant l’animation). Mais l’utilité
-        intéréssante du @starting-style réside dans l’animation du display: none a display: block. Anciennement il n’était pas possible de rajouter une
-        animation d’apparition d’un contenu lorsque il passait de display: none a display: block, avec la feature @starting-style il est maintenant possible de
-        faire ça.
+        La fonctionnalité <strong>@starting-style</strong> est utile pour éviter le Flash Of Unstyled Content (flash du contenu final avant l’animation). Mais
+        l’utilité intéréssante du <strong>@starting-style</strong> réside dans l’animation du display: none a display: block. Anciennement il n’était pas
+        possible de rajouter une animation d’apparition d’un contenu lorsque il passait de display: none a display: block, avec la feature
+        <strong>@starting-style</strong> il est maintenant possible de faire ça.
       </p>
     </section>
     <template id="exemple_section">
