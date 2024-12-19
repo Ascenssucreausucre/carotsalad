@@ -14,9 +14,13 @@
   --bleulet: #250044;
 }
 
-@media only screen and (min-width: 600px) {
-  body {
-    background-color: var(--rouge);
+main {
+  padding-inline: 15vw;
+  padding-top: 60px;
+}
+@media only screen and (max-width: 600px) {
+  main {
+    padding-inline: 5vw;
   }
 }
 
@@ -27,11 +31,17 @@ html {
 
 /* HEADER  */
 /* HEADER  */
-
+nav-bar {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+}
 header {
   display: flex;
   justify-content: space-between;
   background-color: white;
+  top: 0;
+  left: 0;
 }
 #logo_container {
   display: flex;
@@ -109,8 +119,6 @@ header {
 #quand_utiliser_section,
 exemple-section > section,
 #conclusion_section {
-  width: 90dvw;
-  margin-inline: auto;
   text-align: justify;
   margin-bottom: 40px;
 }

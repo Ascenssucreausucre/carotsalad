@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/style.css" />
-    <script src="assets/js/harry-styles.js" type="module"></script>
+    <script src="assets/js/nav-bar.js" type="module"></script>
+    <script src="assets/js/acc-ueil.js" type="module"></script>
     <script src="assets/js/exemple-section.js" type="module"></script>
     <!-- CSS highlight.js -->
     <link
@@ -17,26 +18,28 @@
     <title>Starting Styles</title>
   </head>
   <body>
-    <harry-styles></harry-styles>
-    <section id="presentation_section">
-      <div class="presentation_container">
-        <span class="presentation_title titles"
-          >C'est quoi <strong>@starting-styles</strong> ?</span
-        >
-        <p class="presentation_paragraph">
-          La fonctionnalité @starting-style a été introduite comme une
-          proposition dans la spécification CSS en 2023 et vise à résoudre des
-          problèmes liés au rendu initial des transitions et des animations.
-        </p>
-        <pre>
+    <nav-bar></nav-bar>
+    <main>
+      <acc-ueil></acc-ueil>
+      <section id="presentation_section">
+        <div class="presentation_container">
+          <span class="presentation_title titles"
+            >C'est quoi <strong>@starting-styles</strong> ?</span
+          >
+          <p class="presentation_paragraph">
+            La fonctionnalité @starting-style a été introduite comme une
+            proposition dans la spécification CSS en 2023 et vise à résoudre des
+            problèmes liés au rendu initial des transitions et des animations.
+          </p>
+          <pre>
           <code>@starting-style {
             opacity: 0.5;
             transform: scale(1.2);
           }
           </code>
         </pre>
-      </div>
-      <!-- <div id="support_navigateur">
+        </div>
+        <!-- <div id="support_navigateur">
         <div class="navigateur">
           <img
             src="./assets/img/firefox_logo.png"
@@ -62,133 +65,147 @@
           <img src="./assets/icons/check.svg" alt="check icon" />
         </div>
       </div> -->
-    </section>
-
-    <section id="quand_utiliser_section">
-      <span class="titles"
-        >Quand utiliser <strong>@starting-styles</strong> ?</span
-      >
-      <p>
-        La fonctionnalité @starting-style est utile pour éviter le Flash Of
-        Unstyled Content (flash du contenu final avant l’animation). Mais
-        l’utilité intéréssante du @starting-style réside dans l’animation du
-        display: none a display: block. Anciennement il n’était pas possible de
-        rajouter une animation d’apparition d’un contenu lorsque il passait de
-        display: none a display: block, avec la feature @starting-style il est
-        maintenant possible de faire ça.
-      </p>
-    </section>
-    <template id="exemple_section">
-      <style>
-        section {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-evenly;
-          align-items: center;
-        }
-
-        .exemple {
-          display: flex;
-          flex-direction: column;
-          text-align: center;
-          width: 30vw;
-        }
-
-        .output {
-          width: 100%;
-          height: 30vw;
-          border: 2px solid black;
-          margin-bottom: 10px;
-          display: grid;
-          place-items: center;
-        }
-
-        .output_img_w_style {
-          opacity: 1;
-          @starting-style {
-            translate: 0 -50px;
-            opacity: 0;
-          }
-        }
-
-        .spawn_imgs {
-          display: none;
-          transition: all 1s ease;
-        }
-
-        .despawn_button {
-          height: 40px;
-          display: grid;
-          place-items: center;
-          background-color: var(--rouge);
-          border: none;
-          width: 40px;
-          border-radius: 5px;
-        }
-
-        .spawn_button {
-          width: 100%;
-          background-color: var(--rouge);
-          border: none;
-          border-radius: 2px;
-          color: white;
-          padding-block: 10px;
-          border-radius: 5px;
-        }
-      </style>
-      <section>
-        <div class="exemple">
-          <span
-            >Avec <br />
-            <strong>@starting-style</strong></span
-          >
-          <div class="output">
-            <slot
-              name="with-starting-style"
-              class="spawn_imgs output_img_w_style"
-            ></slot>
-          </div>
-          <button class="spawn_button">Spawn</button>
-        </div>
-        <button class="despawn_button">
-          <img src="./assets/icons/refresh.svg" alt="Refresh icon" />
-        </button>
-        <div class="exemple">
-          <span
-            >Sans <br />
-            <strong>@starting-style</strong></span
-          >
-          <div class="output">
-            <slot name="without-starting-style" class="spawn_imgs"></slot>
-          </div>
-          <button class="spawn_button">Spawn</button>
-        </div>
       </section>
-    </template>
 
-    <exemple-section>
-      <img
-        class="output_img output_img_w_style"
-        src="./assets/img/sanic.gif"
-        alt="Image de toilet"
-        slot="with-starting-style"
-      />
-      <img
-        class="output_img"
-        src="./assets/img/sanic.gif"
-        alt="Image de toilet"
-        slot="without-starting-style"
-      />
-    </exemple-section>
+      <section id="quand_utiliser_section">
+        <span class="titles"
+          >Quand utiliser <strong>@starting-styles</strong> ?</span
+        >
+        <p>
+          La fonctionnalité @starting-style est utile pour éviter le Flash Of
+          Unstyled Content (flash du contenu final avant l’animation). Mais
+          l’utilité intéréssante du @starting-style réside dans l’animation du
+          display: none a display: block. Anciennement il n’était pas possible
+          de rajouter une animation d’apparition d’un contenu lorsque il passait
+          de display: none a display: block, avec la feature @starting-style il
+          est maintenant possible de faire ça.
+        </p>
+      </section>
+      <template id="exemple_section">
+        <style>
+          section {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+          }
 
-    <section id="conclusion_section">
-      <span class="titles">Conclusion</span>
-      <p>blablablablablablablablablablablab lablablablablablablablablablabla</p>
-    </section>
-    <script>
-      // Start la lib pour le <pre> <code>
-      hljs.highlightAll();
-    </script>
+          .exemple {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            width: 30vw;
+          }
+
+          .output {
+            width: 100%;
+            height: 30vw;
+            border: 2px solid black;
+            margin-bottom: 10px;
+            display: grid;
+            place-items: center;
+          }
+
+          .output_img_w_style {
+            opacity: 1;
+            @starting-style {
+              translate: 0 -50px;
+              opacity: 0;
+            }
+          }
+
+          .spawn_imgs {
+            display: none;
+            transition: all 1s ease;
+          }
+
+          .despawn_button {
+            height: 40px;
+            display: grid;
+            place-items: center;
+            background-color: var(--rouge);
+            border: none;
+            width: 40px;
+            border-radius: 5px;
+          }
+
+          .spawn_button {
+            width: 100%;
+            background-color: var(--rouge);
+            border: none;
+            border-radius: 2px;
+            color: white;
+            padding-block: 10px;
+            border-radius: 5px;
+          }
+          @media only screen and (min-width: 600px) {
+            section {
+              padding-inline: 10vw;
+            }
+            .exemple {
+              width: 15vw;
+            }
+            .output {
+              height: 15vw;
+            }
+          }
+        </style>
+        <section>
+          <div class="exemple">
+            <span
+              >Avec <br />
+              <strong>@starting-style</strong></span
+            >
+            <div class="output">
+              <slot
+                name="with-starting-style"
+                class="spawn_imgs output_img_w_style"
+              ></slot>
+            </div>
+            <button class="spawn_button">Spawn</button>
+          </div>
+          <button class="despawn_button">
+            <img src="./assets/icons/refresh.svg" alt="Refresh icon" />
+          </button>
+          <div class="exemple">
+            <span
+              >Sans <br />
+              <strong>@starting-style</strong></span
+            >
+            <div class="output">
+              <slot name="without-starting-style" class="spawn_imgs"></slot>
+            </div>
+            <button class="spawn_button">Spawn</button>
+          </div>
+        </section>
+      </template>
+
+      <exemple-section>
+        <img
+          class="output_img output_img_w_style"
+          src="./assets/img/sanic.gif"
+          alt="Image de toilet"
+          slot="with-starting-style"
+        />
+        <img
+          class="output_img"
+          src="./assets/img/sanic.gif"
+          alt="Image de toilet"
+          slot="without-starting-style"
+        />
+      </exemple-section>
+
+      <section id="conclusion_section">
+        <span class="titles">Conclusion</span>
+        <p>
+          blablablablablablablablablablablab lablablablablablablablablablabla
+        </p>
+      </section>
+      <script>
+        // Start la lib pour le <pre> <code>
+        hljs.highlightAll();
+      </script>
+    </main>
     <footer>
       <span
         >Mxou l'honoré empereur de jade de la hauteur supreme du ciel et de la
