@@ -14,10 +14,20 @@
   --bleulet: #250044;
 }
 
-@media only screen and (min-width: 600px) {
-  body {
-    background-color: var(--rouge);
-  }
+main {
+  padding-inline: 20vw;
+  padding-top: 80px;
+}
+h3 > span:first-of-type {
+  display: block;
+}
+h3 > span:nth-of-type(2) {
+  display: none;
+}
+
+code,
+p {
+  font-size: clamp(0.5rem, 1vw, 1rem);
 }
 
 html {
@@ -27,11 +37,19 @@ html {
 
 /* HEADER  */
 /* HEADER  */
-
+nav-bar {
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.205));
+}
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   background-color: white;
+  padding-block: 5px;
+  top: 0;
+  left: 0;
 }
 #logo_container {
   display: flex;
@@ -59,13 +77,10 @@ header {
   transition: all 0.5s ease;
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
   top: 0;
-  right: 0;
+  right: 100px;
   left: 70%;
   border: none;
   padding: 20px 20px;
-  @starting-style {
-    translate: 100% 0;
-  }
 }
 
 #side-bar::backdrop {
@@ -84,7 +99,8 @@ header {
 
 .titles {
   color: var(--rouge);
-  font-size: 1.5rem;
+  font-size: clamp(1.5em, 2vw, 3em);
+  text-align: center;
 }
 
 #accueil {
@@ -109,12 +125,9 @@ header {
 #quand_utiliser_section,
 exemple-section > section,
 #conclusion_section {
-  width: 90dvw;
-  margin-inline: auto;
   text-align: justify;
   margin-bottom: 40px;
 }
-
 .nav_alert {
   background-color: #ffcccc;
   color: #900;
@@ -161,6 +174,132 @@ exemple-section > section,
   border: none;
 }
 
+.exemple > .output {
+  position: relative;
+  anchor-name: --anchor;
+}
+dialog {
+  position: absolute;
+  position-anchor: --my-anchor;
+  position-area: bottom;
+  background-color: #1e2901;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
+  padding: 10px;
+  border-radius: 15px;
+  color: white;
+  border: none;
+  font-size: clamp(10px, 1vw, 15px);
+  transition: all 0.5s ease;
+}
+.exemple:first-of-type dialog {
+  opacity: 1;
+  @starting-style {
+    opacity: 0;
+  }
+}
+.exemple > .output > div:hover dialog {
+  display: block;
+}
+#hover,
+#popover {
+  margin-top: 50px;
+  width: 100%;
+}
+#hover > div,
+#popover > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+#hover h3,
+#popover h3 {
+  color: #ff0044;
+  position: relative;
+  font-size: clamp(15px, 2vw, 35px);
+}
+#hover h3::after,
+#popover h3::after {
+  position: absolute;
+  content: "";
+  width: 80%;
+  height: 3px;
+  top: 100%;
+  left: 50%; /* Positionne le milieu à 50% */
+  transform: translateX(-50%); /* Centre l'élément */
+  border-radius: 3px;
+  background-color: #ff0044;
+}
+.exemple {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 20vw;
+}
+.exemple > p {
+  margin-bottom: 20px;
+}
+.output {
+  width: 100%;
+  height: 20vw;
+  background-color: white;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: grid;
+  place-items: center;
+}
+
+.explaination {
+  margin-top: 20px;
+}
+
+.btn {
+  background-color: var(--rouge);
+  border: none;
+  font-weight: 600;
+  font-size: 1.5rem;
+  padding: 10px 15px;
+  color: #fcf7ef;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: filter 0.3s ease-out;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+  font-size: clamp(15px, 2vw, 35px);
+}
+.btn:hover {
+  filter: drop-shadow(0 0 3px #ff0044);
+}
+
+.popover {
+  text-align: start;
+  border: none;
+  width: 50vw;
+  max-height: 80dvh;
+  opacity: 1;
+  transition: all 0.5s ease;
+  border-radius: 25px;
+  margin: 0;
+  margin-inline: auto;
+  top: 50px;
+  padding-block: 20px;
+  padding-inline: 5vw;
+}
+.popover::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#my-popover {
+  @starting-style {
+    opacity: 0;
+    translate: 0 -50px;
+  }
+}
+.overflow-Y {
+  overflow-y: scroll;
+  max-height: 400px;
+}
+
 /* EXEMPLE SECTION  */
 /* EXEMPLE SECTION  */
 
@@ -173,14 +312,16 @@ exemple-section > section,
   align-items: center;
 }
 
-.pros, .cons {
+.pros,
+.cons {
   width: 90vw;
   text-align: center;
   margin: 20px 0;
   border-radius: 10px;
 }
 
-.pros ul, .cons ul {
+.pros ul,
+.cons ul {
   list-style-type: none;
 }
 
@@ -198,7 +339,6 @@ exemple-section > section,
   font-size: 1.5rem;
 }
 
-
 /* PROS & CONS  */
 /* PROS & CONS  */
 
@@ -213,3 +353,21 @@ footer {
 }
 /* FOOTER  */
 /* FOOTER  */
+
+@media only screen and (max-width: 600px) {
+  main {
+    padding-inline: 5vw;
+  }
+  h3 > span:first-of-type {
+    display: none;
+  }
+  h3 > span:nth-of-type(2) {
+    display: block;
+  }
+  .popover {
+    width: 90vw;
+  }
+  .overflow-Y {
+    max-height: 300px;
+  }
+}
