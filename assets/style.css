@@ -131,10 +131,7 @@ exemple-section > section,
   margin-bottom: 15px;
 }
 
-.language-css {
-  background-color: rgb(16, 16, 39);
-  margin-bottom: 15px;
-}
+
 
 .code_container code {
   display: flex;
