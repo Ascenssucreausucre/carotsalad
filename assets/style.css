@@ -27,7 +27,7 @@ h3 > span:nth-of-type(2) {
 
 code,
 p {
-  font-size: clamp(0.5rem, 1vw, 1rem);
+  font-size: clamp(0.7rem, 1vw, 1rem);
 }
 
 html {
