@@ -9,6 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (userAgent.includes("Chrome")) {
       return "Google Chrome (Supporté)";
     } else if (userAgent.includes("Firefox")) {
+      const navAlert = document.createElement("div");
+      navAlert.classList.add("nav_alert");
+      navAlert.innerHTML =
+        "Votre navigateur supporte partiellement cette fonctionnalité";
+      const presentationSection = document.getElementById(
+        "presentation_section"
+      );
+      presentationSection.prepend(navAlert);
       return "Mozilla Firefox (Support partiel)";
     } else if (userAgent.includes("Safari")) {
       return "Safari (Supporté)";
@@ -28,4 +36,5 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   detectBrowser();
+  console.log("moutard");
 });
